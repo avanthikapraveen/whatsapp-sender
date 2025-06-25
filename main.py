@@ -13,10 +13,10 @@ driver = webdriver.Chrome(service=service)
 driver.get("https://web.whatsapp.com")
 input("Press Enter after scanning the QR code...")
 df = pd.read_excel("consumer_numbers.xlsx")
-message = "Hello, this is a test message from my automation script!"
+message = "Hello, this is a test message from Automation Script."
 print(f"Total number of messages to be send: {len(df)}")
 for index, row in df.iterrows():
-    phone_number = str(row['Phone No']).strip()
+    phone_number = str(int(float(row['Phone No']))).strip()
     print(f"Sending message to {phone_number}...")
     try:
         url = f"https://wa.me/{phone_number}"
