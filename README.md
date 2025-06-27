@@ -15,38 +15,53 @@ A Python automation tool to send WhatsApp messages to a list of phone numbers fr
 
 ### 1. ChromeDriver
 
-- Download the correct version of **ChromeDriver** from:  
+- Download the ChromeDriver matching your Chrome version:  
   https://chromedriver.chromium.org/downloads
-- It must match your version of Chrome.
-- After downloading, extract it and note the path to the `.exe` file.
-- Update this line in the Python script with the correct path:
-  **CHROMEDRIVER_PATH = "C:\\path\\to\\chromedriver.exe"**
+- Extract and copy the path to the `.exe` file.
+- Set the path in the script:
+  ```python
+  CHROMEDRIVER_PATH = "C:\\path\\to\\chromedriver.exe"
+  ```
 
 ### 2. Excel File
 
-- The Excel file should have a column titled exactly:
-- **Phone No**
-
-- Save the Excel file in the same folder as the Python script.
-
-- If your Excel file is not named consumer_numbers.xlsx, update this line:
-- **df = pd.read_excel("your_filename.xlsx")**
+- Must contain a column titled exactly:
+  ```
+  Phone No
+  ```
+- Save the Excel file in the same folder as the script.
+- If the file name is not `consumer_numbers.xlsx`, update this line:
+  ```python
+  df = pd.read_excel("your_filename.xlsx")
+  ```
 
 ### 3. Custom Message
 
-- Change this line in the script to send your own message:
-- **message = "Hello, this is a test message from Automation Script."**
-
----
+- Edit this line to set your own message:
+  ```python
+  message = "Hello, this is a test message from Automation Script."
+  ```
 
 ## How to Run
 
-1. Ensure Python and all dependencies (selenium, pandas, openpyxl) are installed.
-- **pip install selenium pandas openpyxl**
-3. Open your terminal in the project folder.
+1. Clone or download this repository.
+
+2. Install dependencies:
+   ```bash
+   pip install selenium pandas openpyxl
+   ```
+
+3. Open terminal in the script folder.
+
 4. Run the script:
-- **python whatsapp_sender.py**
-5. A Chrome window will open. It will load https://web.whatsapp.com.
-6. Scan the QR code using your WhatsApp mobile app.
-7. Once you're logged in, go back to the terminal and press Enter as prompted.
-8. The script will now send your message to all the phone numbers listed in the Excel file.
+   ```bash
+   python whatsapp_sender.py
+   ```
+
+5. Chrome will open `https://web.whatsapp.com`.
+
+6. Scan the QR code using your phone.
+
+7. After login, return to the terminal and press Enter when prompted.
+
+8. The script will send messages to the numbers in your Excel file.
